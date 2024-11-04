@@ -1,6 +1,7 @@
 import { GraphQLFloat, GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql/type/index.js';
 import { UUIDType } from '../uuid.js';
 import { ProfileType } from './profile.js';
+import { PostType } from './post.js';
 
 
 export const UserType = new GraphQLObjectType({
@@ -22,9 +23,7 @@ export const UserType = new GraphQLObjectType({
 
     userSubscribedTo: {
       type: new GraphQLNonNull(new GraphQLList(UserType)),
-      resolve: async (source, args, context) => {
-        {}
-      },
+      resolve: async (source, args, context) => {},
     },
 
     subscribedToUser: {
