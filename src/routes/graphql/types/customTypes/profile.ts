@@ -12,14 +12,18 @@ export const ProfileType = new GraphQLObjectType({
     yearOfBirth: { type: new GraphQLNonNull(GraphQLInt) },
 
     user: { type: UserType,
-      resolve: async (source, args, context) => {},
+      resolve: async (source, args, context) => {
+        return await context.prisma.user.findFirst({ where: { id: source.userId } });
+      },
     },
 
     userId: {type: new GraphQLNonNull(UUIDType)},
 
     memberType: {
       type: new GraphQLNonNull(MemberType),
-      resolve: async (source, args, context) => {},
+      resolve: async (source, args, context) => {
+        return await context.prisma.memberType.findUnique({ where: { id: source.memberTypeId } })
+      },
     },
 
     memberTypeId: { type: new GraphQLNonNull(MemberTypeIdType) } }),
