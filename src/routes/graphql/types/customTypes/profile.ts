@@ -2,6 +2,7 @@ import { GraphQLBoolean, GraphQLInt, GraphQLObjectType } from 'graphql';
 import { UUIDType } from '../uuid.js';
 import { GraphQLNonNull } from 'graphql/type/index.js';
 import { MemberType, MemberTypeIdType } from './member.js';
+import { UserType } from './user.js';
 
 export const ProfileType = new GraphQLObjectType({
   name: 'ProfileType',
